@@ -27,7 +27,6 @@ public class OrderItem implements Serializable {
 	}
 
 	public OrderItem(Order order, Product product,Integer quantity, Double price) {
-		super();
 		id.setOrder(order);
 		id.setProduct(product);
 		this.quantity = quantity;
@@ -50,6 +49,9 @@ public class OrderItem implements Serializable {
 		this.price = price;
 	}
 	
+	public Double getSubtotal() {
+		return price * quantity;
+	}
 	@JsonIgnore
 	public Order getOrder() {
 		return id.getOrder();
@@ -66,6 +68,7 @@ public class OrderItem implements Serializable {
 	public void setProduct(Product product) {
 		id.setProduct(product);
 	}
+	
 	
 	@Override
 	public int hashCode() {

@@ -1,7 +1,6 @@
 package com.excelence.config;
 
 import java.time.Instant;
-import java.util.ArrayList;
 import java.util.Arrays;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +11,7 @@ import org.springframework.context.annotation.Profile;
 import com.excelence.entities.Category;
 import com.excelence.entities.Order;
 import com.excelence.entities.OrderItem;
+import com.excelence.entities.Paymant;
 import com.excelence.entities.Product;
 import com.excelence.entities.User;
 import com.excelence.entities.enums.OrderStatus;
@@ -81,6 +81,11 @@ public class TestConfig implements CommandLineRunner{
 		OrderItem oi4 = new OrderItem(o3, p5, 2, p5.getPrice()); 
 	
 		orderItemRepository.saveAll(Arrays.asList(oi1, oi2, oi3, oi4));
+		
+		Paymant pay1 = new Paymant(null, Instant.parse("2019-06-20T22:53:07Z"), o1);
+		o1.setPayment(pay1);
+		
+		orderRepository.save(o1);
 	}
 	
 }
