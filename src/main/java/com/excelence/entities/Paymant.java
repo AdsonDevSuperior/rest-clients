@@ -31,7 +31,6 @@ public class Paymant implements Serializable{
 	private Order order;
 
 	public Paymant() {
-		super();
 	}
 
 	public Paymant(Long id, Instant moment, Order order) {
